@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="global_dataModel.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="global_dataModelStoreContainer">
+          <EntitySet Name="hotelcomment" EntityType="global_dataModel.Store.hotelcomment" store:Type="Tables" Schema="global_data" />
+          <EntitySet Name="hotelinfo" EntityType="global_dataModel.Store.hotelinfo" store:Type="Tables" Schema="global_data" />
+        </EntityContainer>
+        <EntityType Name="hotelcomment">
+          <Key>
+            <PropertyRef Name="idHotelComment" />
+          </Key>
+          <Property Name="idHotelComment" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Hotelid" Type="int" Nullable="false" />
+          <Property Name="PageCount" Type="int" Nullable="false" />
+          <Property Name="ShortContent" Type="varchar" MaxLength="30" />
+          <Property Name="HotelRate" Type="float" />
+          <Property Name="CommentDate" Type="date" />
+          <Property Name="FullContent" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="hotelinfo">
+          <Key>
+            <PropertyRef Name="idHotelInfo" />
+          </Key>
+          <Property Name="idHotelInfo" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="HotelName" Type="varchar" MaxLength="50" />
+          <Property Name="HotelCity" Type="varchar" MaxLength="45" />
+          <Property Name="PageCount" Type="int" Nullable="false" />
+          <Property Name="HotelDescription" Type="varchar" MaxLength="500" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="global_dataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="global_dataEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="hotelcomment" EntityType="global_dataModel.hotelcomment" />
+          <EntitySet Name="hotelinfo" EntityType="global_dataModel.hotelinfo" />
+        </EntityContainer>
+        <EntityType Name="hotelcomment">
+          <Key>
+            <PropertyRef Name="idHotelComment" />
+          </Key>
+          <Property Name="idHotelComment" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Hotelid" Type="Int32" Nullable="false" />
+          <Property Name="PageCount" Type="Int32" Nullable="false" />
+          <Property Name="ShortContent" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="HotelRate" Type="Single" />
+          <Property Name="CommentDate" Type="DateTime" />
+          <Property Name="FullContent" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="hotelinfo">
+          <Key>
+            <PropertyRef Name="idHotelInfo" />
+          </Key>
+          <Property Name="idHotelInfo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HotelName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="HotelCity" Type="String" MaxLength="45" Unicode="false" FixedLength="false" />
+          <Property Name="PageCount" Type="Int32" Nullable="false" />
+          <Property Name="HotelDescription" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="global_dataModelStoreContainer" CdmEntityContainer="global_dataEntities">
+          <EntitySetMapping Name="hotelcomment">
+            <EntityTypeMapping TypeName="global_dataModel.hotelcomment">
+              <MappingFragment StoreEntitySet="hotelcomment">
+                <ScalarProperty Name="idHotelComment" ColumnName="idHotelComment" />
+                <ScalarProperty Name="Hotelid" ColumnName="Hotelid" />
+                <ScalarProperty Name="PageCount" ColumnName="PageCount" />
+                <ScalarProperty Name="ShortContent" ColumnName="ShortContent" />
+                <ScalarProperty Name="HotelRate" ColumnName="HotelRate" />
+                <ScalarProperty Name="CommentDate" ColumnName="CommentDate" />
+                <ScalarProperty Name="FullContent" ColumnName="FullContent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="hotelinfo">
+            <EntityTypeMapping TypeName="global_dataModel.hotelinfo">
+              <MappingFragment StoreEntitySet="hotelinfo">
+                <ScalarProperty Name="idHotelInfo" ColumnName="idHotelInfo" />
+                <ScalarProperty Name="HotelName" ColumnName="HotelName" />
+                <ScalarProperty Name="HotelCity" ColumnName="HotelCity" />
+                <ScalarProperty Name="PageCount" ColumnName="PageCount" />
+                <ScalarProperty Name="HotelDescription" ColumnName="HotelDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="TripAdvisorEDM">
+        <EntityTypeShape EntityType="global_dataModel.hotelcomment" Width="1.5" PointX="0.75" PointY="0.75" Height="2.3520719401041665" IsExpanded="true" />
+        <EntityTypeShape EntityType="global_dataModel.hotelinfo" Width="1.5" PointX="2.75" PointY="0.75" Height="1.9700325520833335" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
